@@ -65,20 +65,20 @@ void gpio_irq_handler(uint gpio, uint32_t events)
     }
     if (gpio == Botao_A)
     { // Verifica se o botão B foi pressionado
-
-      pwm_set_enabled(pwm_slice_red, 0);
-      pwm_set_enabled(pwm_slice_blue, 0);
-      leds_pwm_ativados = false;
+      leds_pwm_ativados = !leds_pwm_ativados;
+      // pwm_set_enabled(pwm_slice_red, 0);
+      // pwm_set_enabled(pwm_slice_blue, 0);
+      // leds_pwm_ativados = false;
       leds_pwm_mudaram_de_estado = true;
 
     }
     if (gpio == botaoB)
     { // Verifica se o botão B foi pressionado
 
-      pwm_set_enabled(pwm_slice_red, 1);
-      pwm_set_enabled(pwm_slice_blue, 1);
-      leds_pwm_ativados = true;
-      leds_pwm_mudaram_de_estado = true;
+      // pwm_set_enabled(pwm_slice_red, 1);
+      // pwm_set_enabled(pwm_slice_blue, 1);
+      // leds_pwm_ativados = true;
+      // leds_pwm_mudaram_de_estado = true;
 
     }
 
@@ -189,7 +189,8 @@ int main()
 
     if(leds_pwm_mudaram_de_estado) {
       if(leds_pwm_ativados) {
-        //ssd1306_artistic_border_triangles(&ssd, 0, 0, 122, 60, cor); // Desenha um retângulo
+        pwm_set_enabled(pwm_slice_red, 1);
+        pwm_set_enabled(pwm_slice_blue, 1);   
         printf("LEDs PWM ativados!\n");
         ssd1306_draw_string(&ssd, "LEDs PWM", 32, 8); // Desenha uma string
         ssd1306_draw_string(&ssd, "ativados", 32, 18); // Desenha uma string
@@ -198,7 +199,8 @@ int main()
         leds_pwm_mudaram_de_estado = false;
 
       } else {
-
+        pwm_set_enabled(pwm_slice_red, 0);
+        pwm_set_enabled(pwm_slice_blue, 0);        
         printf("LEDs PWM desativados!\n");
         ssd1306_draw_string(&ssd, "LEDs PWM", 32, 8); // Desenha uma string
         ssd1306_draw_string(&ssd, "desativados", 20, 18); // Desenha uma string
