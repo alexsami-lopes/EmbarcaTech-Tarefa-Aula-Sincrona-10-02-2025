@@ -203,10 +203,7 @@ void ssd1306_draw_string(ssd1306_t *ssd, const char *str, uint8_t x, uint8_t y)
 
 
 // Borda usando um caracter
-void ssd1306_border_character(ssd1306_t *ssd,
-                           uint8_t top, uint8_t left,
-                           uint8_t width, uint8_t height,
-                           bool value, char character) {
+void ssd1306_border_character(ssd1306_t *ssd, uint8_t top, uint8_t left, uint8_t width, uint8_t height, bool value, char character) {
     // Borda superior:
     for (uint8_t x = left; x < left + width; x += CARD_WIDTH) {
         ssd1306_draw_char(ssd, character, x, top);
