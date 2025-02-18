@@ -111,7 +111,7 @@ Finalmente, o botão A tem a seguinte funcionalidade:
 ## 🎥 Demonstração na Placa (Video): 
 
 <div align="center">
-  <a href="https://youtu.be/Ka4Hq_S2rEc" target="_blank">
+  <a href="https://youtu.be/MkjJTz6ifls" target="_blank">
     <img src="images/Demo_Placa_Video.png" width="500px">
   </a>
 </div>
